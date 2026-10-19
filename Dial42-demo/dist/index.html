@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Schedule | StandBy Corporate</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/demo.css?v=1791981077">
+</head>
+<body class="nav-md">
+<div class="main_container">
+
+    <!-- ===== Left sidebar (Gentelella style) ===== -->
+<div class="left_col">
+    <div class="navbar nav_title">
+        <a href="#" class="site_title"><i class="fa fa-car"></i> <span>Dial 4242</span></a>
+    </div>
+
+    <div class="profile">
+        <div class="profile_pic"><span class="img-circle profile_img">AD</span></div>
+        <div class="profile_info">
+            <span>Welcome,</span>
+            <h2>Admin</h2>
+        </div>
+    </div>
+
+    <div id="sidebar-menu" class="main_menu_side main_menu">
+        <div class="menu_section">
+            <h3>General</h3>
+            <ul class="nav side-menu">
+                <li><a href="#"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="#"><i class="fa fa-building"></i> <span>Corporate Master</span></a></li>
+                <li class="active open">
+                    <a href="#"><i class="fa fa-clock-o"></i> <span>StandBy</span> <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#">StandBy Corporate</a></li>
+                        <li class="current-page"><a href="#">Update Schedule</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-users"></i> <span>Drivers</span></a></li>
+                <li><a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <!-- ===== Top navigation ===== -->
+<div class="top_nav">
+    <div class="nav_menu">
+        <a id="menu_toggle" href="#" title="Toggle menu"><i class="fa fa-bars"></i></a>
+        <form class="sb-top-search hidden-xs" onsubmit="return false;" role="search">
+            <input type="text" class="form-control input-sm" placeholder="Search..." aria-label="Search">
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="sb-reset" title="Reload the original sample data"><i class="fa fa-refresh"></i> <span class="hidden-xs">Reset demo data</span></a></li>
+            <li class="sb-welcome"><span><span class="sb-avatar-sm">AD</span> <span class="hidden-xs">Welcome : Admin</span> <i class="fa fa-angle-down"></i></span></li>
+        </ul>
+    </div>
+</div>
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="page-title">
+            <h3>Update Schedule</h3>
+            <span class="page-sub">StandBy Corporate &rsaquo; manage driver location assignment and shift timing</span>
+        </div>
+
+        <div class="x_panel">
+            <ul class="nav nav-tabs sb-view-tabs" role="tablist">
+                <li role="presentation"><a href="#view1" data-view="view1" role="tab" data-toggle="tab"><i class="fa fa-exchange"></i> View 1 – From / To</a></li>
+                <li role="presentation"><a href="#view2" data-view="view2" role="tab" data-toggle="tab"><i class="fa fa-calendar"></i> View 2 – Calendar</a></li>
+                <li role="presentation"><a href="#view3" data-view="view3" role="tab" data-toggle="tab"><i class="fa fa-columns"></i> View 3 – Driver Board</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="view1">
+                    <p class="sb-view-desc"><i class="fa fa-lightbulb-o"></i> Today's screen, cleaned up: pick drivers on the left, set their new location and timing on the right, preview conflicts, then confirm in one batch.</p>
+                    <!-- =====================================================================
+     VIEW 1 – From / To (replica of production "StandBy > Update Schedule")
+     Behaviour: assets/js/view1.js
+     ===================================================================== -->
+<div class="row v1" id="v1">
+
+    <!-- ---------- LEFT: From – current assignment ---------- -->
+    <div class="col-lg-5">
+        <div class="sb-card">
+            <div class="sb-card-head"><i class="fa fa-sign-out"></i> From – current assignment</div>
+            <div class="sb-card-body">
+                <div class="btn-group btn-group-sm v1-mode" role="group" aria-label="Find drivers by">
+                    <button type="button" class="btn btn-default active" data-mode="browse"><i class="fa fa-map-marker"></i> Browse location</button>
+                    <button type="button" class="btn btn-default" data-mode="search"><i class="fa fa-search"></i> Search driver</button>
+                </div>
+
+                <div class="v1-browse row sb-form-row">
+                    <div class="col-sm-6 form-group">
+                        <label for="v1-corp">Corporate</label>
+                        <select id="v1-corp" class="form-control input-sm"></select>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="v1-loc">Location</label>
+                        <select id="v1-loc" class="form-control input-sm"></select>
+                    </div>
+                </div>
+
+                <div class="v1-search sb-form-row hidden">
+                    <div class="form-group">
+                        <label for="v1-q">Driver name or mobile</label>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" id="v1-q" class="form-control" placeholder="e.g. Chinmay or 98332" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped sb-table v1-from-table">
+                        <thead>
+                            <tr>
+                                <th class="sb-col-check"><input type="checkbox" id="v1-all" title="Select all"></th>
+                                <th>Driver</th>
+                                <th>Assignment</th>
+                                <th>Shift</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="sb-dt-info" id="v1-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------- RIGHT: To – new assignment ---------- -->
+    <div class="col-lg-7">
+        <div class="sb-card">
+            <div class="sb-card-head"><i class="fa fa-sign-in"></i> To – new assignment</div>
+            <div class="sb-card-body">
+
+                <div class="v1-bulk">
+                    <div class="v1-bulk-title">Bulk defaults <small>(applied to every selected driver)</small></div>
+                    <div class="row sb-form-row">
+                        <div class="col-sm-4 col-xs-6 form-group">
+                            <label for="v1-b-corp">Corporate</label>
+                            <select id="v1-b-corp" class="form-control input-sm"></select>
+                        </div>
+                        <div class="col-sm-4 col-xs-6 form-group">
+                            <label for="v1-b-loc">Location</label>
+                            <select id="v1-b-loc" class="form-control input-sm"></select>
+                        </div>
+                        <div class="col-sm-4 col-xs-6 form-group">
+                            <label for="v1-b-type">Shift type</label>
+                            <select id="v1-b-type" class="form-control input-sm">
+                                <option value="">Keep current</option>
+                                <option>Permanent</option>
+                                <option>Reliever</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 col-xs-6 form-group">
+                            <label for="v1-b-start">Start time</label>
+                            <input type="time" id="v1-b-start" class="form-control input-sm" step="900">
+                        </div>
+                        <div class="col-sm-4 col-xs-6 form-group">
+                            <label for="v1-b-end">End time</label>
+                            <input type="time" id="v1-b-end" class="form-control input-sm" step="900">
+                        </div>
+                        <div class="col-sm-4 col-xs-6 form-group">
+                            <label class="hidden-xs">&nbsp;</label>
+                            <button type="button" id="v1-apply" class="btn btn-default btn-sm btn-block"><i class="fa fa-magic"></i> Apply to all</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="v1-sel-title">Selected drivers <span class="badge" id="v1-count">0</span></h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered sb-table v1-to-table">
+                        <thead>
+                            <tr>
+                                <th style="min-width:130px">Driver</th>
+                                <th style="min-width:160px">Location</th>
+                                <th style="min-width:108px">Shift type</th>
+                                <th style="min-width:100px">Start</th>
+                                <th style="min-width:100px">End</th>
+                                <th class="sb-col-icon"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="v1-actions">
+                    <button type="button" id="v1-preview" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Preview</button>
+                    <button type="button" id="v1-confirm" class="btn btn-success btn-sm" disabled><i class="fa fa-check"></i> Confirm</button>
+                    <button type="button" id="v1-reset" class="btn btn-default btn-sm"><i class="fa fa-undo"></i> Reset</button>
+                    <span class="v1-summary text-muted" id="v1-summary"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirm modal -->
+<div class="modal fade" id="v1-modal" tabindex="-1" role="dialog" aria-labelledby="v1-modal-title">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="v1-modal-title">Confirm update</h4>
+            </div>
+            <div class="modal-body">
+                <p id="v1-modal-text"></p>
+                <ul id="v1-modal-list" class="v1-modal-list"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-sm" id="v1-modal-ok"><i class="fa fa-check"></i> OK, update</button>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="view2">
+                    <p class="sb-view-desc"><i class="fa fa-lightbulb-o"></i> <b>Week</b> shows one location over 7 days, <b>Day</b> shows every location on one day. Drag blocks to change date, timing or location (or drop them on a tab), drag an edge to set an 8-hour slot, and click any slot to assign a driver.</p>
+                    <!-- =====================================================================
+     VIEW 2 – Calendar / scheduler grid (one corporate at a time)
+     Behaviour: assets/js/view2.js
+     ===================================================================== -->
+<div class="v2" id="v2">
+    <div class="v2-toolbar">
+        <div class="form-group">
+            <label for="v2-corp">Standby Corporate</label>
+            <select id="v2-corp" class="form-control input-sm"></select>
+        </div>
+        <div class="form-group">
+            <label for="v2-company">Standby Company</label>
+            <input type="text" id="v2-company" class="form-control input-sm" readonly>
+        </div>
+        <div class="v2-legend" aria-label="Legend">
+            <span><i class="lg-perm"></i>Permanent</span>
+            <span><i class="lg-rel"></i>Reliever</span>
+            <span><i class="lg-conf"></i>Conflict</span>
+        </div>
+        <div class="v2-zoom">
+            <label class="hidden-xs" style="display:block">Slot size</label>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Zoom">
+                <button type="button" class="btn btn-default active" data-zoom="30">30 min</button>
+                <button type="button" class="btn btn-default" data-zoom="60">1 hr</button>
+                <button type="button" class="btn btn-default" data-zoom="240">4 hr</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7-day date navigator -->
+    <div class="v2-datenav">
+        <div class="btn-group btn-group-sm v2-viewmode" role="group" aria-label="Layout">
+            <button type="button" class="btn btn-default active" data-viewmode="week" aria-pressed="true" title="One location, 7 days"><i class="fa fa-calendar"></i> Week <span class="hidden-xs">· one location</span></button>
+            <button type="button" class="btn btn-default" data-viewmode="day" aria-pressed="false" title="One day, all locations"><i class="fa fa-columns"></i> Day <span class="hidden-xs">· all locations</span></button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Week">
+            <button type="button" class="btn btn-default" data-nav="-7" title="Previous week"><i class="fa fa-chevron-left"></i> Previous week</button>
+            <button type="button" class="btn btn-default" data-nav="today">Today</button>
+            <button type="button" class="btn btn-default" data-nav="7" title="Next week">Next week <i class="fa fa-chevron-right"></i></button>
+        </div>
+        <div class="btn-group btn-group-sm v2-weekstart" role="group" aria-label="Week starts on">
+            <button type="button" class="btn btn-default active" data-weekstart="monday" aria-pressed="true" title="Show weeks from Monday to Sunday">Mon – Sun</button>
+            <button type="button" class="btn btn-default" data-weekstart="today" aria-pressed="false" title="Show 7 days starting from today">From today</button>
+        </div>
+        <input type="date" id="v2-jump" class="form-control input-sm" aria-label="Jump to date" title="Jump to date">
+        <strong class="v2-range" id="v2-range"></strong>
+        <div class="btn-group btn-group-sm v2-colmode" role="group" aria-label="Location columns">
+            <button type="button" class="btn btn-default active" data-colmode="legend" aria-pressed="true" title="Short columns: locations shown as letters (see legend)"><i class="fa fa-tags"></i> Legend</button>
+            <button type="button" class="btn btn-default" data-colmode="names" aria-pressed="false" title="Wider columns with the full location name"><i class="fa fa-map-marker"></i> Location names</button>
+        </div>
+        <div class="v2-legend v2-loc-legend" id="v2-loc-legend" aria-label="Locations"></div>
+    </div>
+
+    <!-- tabs: locations (week view) or dates (day view); click to switch, drop a shift to move it -->
+
+    <div class="v2-strip" id="v2-strip" role="toolbar" aria-label="Switch location or day"></div>
+
+
+    <!-- status bar: "Saved" / "Removed" confirmations with Undo (errors and warnings open a centred pop-up) -->
+    <div class="v2-status" id="v2-status" role="status" aria-live="polite" style="display:none"></div>
+
+    <!-- grid is rendered here -->
+    <div class="v2-scroller" id="v2-scroller"></div>
+
+    <!-- unassigned drivers (drag onto the grid) -->
+    <div class="v2-unassigned" id="v2-unassigned">
+        <div class="v2-un-head">
+            <strong><i class="fa fa-user-plus"></i> Unassigned drivers</strong>
+            <div class="v2-un-search">
+                <i class="fa fa-search"></i>
+                <input type="text" id="v2-un-q" class="form-control input-sm" placeholder="Search name or mobile" autocomplete="off">
+            </div>
+        </div>
+        <div class="v2-un-list" id="v2-un-list"></div>
+    </div>
+</div>
+
+<!-- Right-side drawer: edit / assign -->
+<div class="sb-drawer-backdrop" id="v2-backdrop"></div>
+<div class="sb-drawer" id="v2-drawer" role="dialog" aria-labelledby="v2-d-title" aria-hidden="true">
+    <div class="sb-drawer-head">
+        <button type="button" class="close v2-d-cancel" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 id="v2-d-title">Edit assignment</h2>
+    </div>
+    <div class="sb-drawer-body">
+        <div id="v2-d-info"></div>
+
+        <div class="form-group">
+            <label for="v2-d-driver">Standby Driver *</label>
+            <select id="v2-d-driver" class="form-control input-sm v2-d-f"></select>
+        </div>
+        <div class="form-group">
+            <label for="v2-d-corp">Standby Corporate *</label>
+            <select id="v2-d-corp" class="form-control input-sm v2-d-f"></select>
+        </div>
+        <div class="form-group">
+            <label for="v2-d-loc">Location *</label>
+            <select id="v2-d-loc" class="form-control input-sm v2-d-f"></select>
+        </div>
+        <div class="form-group">
+            <label for="v2-d-type">Shift Type *</label>
+            <select id="v2-d-type" class="form-control input-sm v2-d-f">
+                <option>Permanent</option>
+                <option>Reliever</option>
+            </select>
+        </div>
+
+        <h4 class="sb-sub-h">Select Shift Timing</h4>
+        <div class="form-group v2-d-scope" id="v2-d-scope">
+            <label>This shift repeats daily (<span id="v2-d-scope-range"></span>). Apply changes to:</label>
+            <div class="radio"><label><input type="radio" name="v2-d-scope" value="one" checked> Only this day – <span id="v2-d-scope-day"></span></label></div>
+            <div class="radio"><label><input type="radio" name="v2-d-scope" value="all"> All days</label></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 form-group">
+                <label for="v2-d-date">From date *</label>
+                <input type="date" id="v2-d-date" class="form-control input-sm v2-d-f">
+            </div>
+            <div class="col-xs-6 form-group">
+                <label for="v2-d-to">To date</label>
+                <input type="date" id="v2-d-to" class="form-control input-sm v2-d-f">
+            </div>
+        </div>
+        <p class="sb-muted" style="margin-top:-6px"><i class="fa fa-repeat"></i> Set a later To date to repeat this slot every day.</p>
+        <div class="row">
+            <div class="col-xs-6 form-group">
+                <label for="v2-d-start">Shift Start Time *</label>
+                <input type="time" id="v2-d-start" class="form-control input-sm v2-d-f" step="900">
+            </div>
+            <div class="col-xs-6 form-group">
+                <label for="v2-d-end">Shift End Time *</label>
+                <input type="time" id="v2-d-end" class="form-control input-sm v2-d-f" step="900">
+            </div>
+        </div>
+        <p class="sb-muted"><i class="fa fa-info-circle"></i> An end time earlier than the start time means the shift runs past midnight.</p>
+        <div class="sb-msg-box" id="v2-d-msgs"></div>
+    </div>
+    <div class="sb-drawer-foot">
+        <button type="button" class="btn btn-primary btn-sm" id="v2-d-save"><i class="fa fa-check"></i> <span>Save</span></button>
+        <button type="button" class="btn btn-default btn-sm v2-d-cancel">Cancel</button>
+        <button type="button" class="btn btn-danger btn-sm" id="v2-d-remove"><i class="fa fa-trash"></i> <span>Remove from location</span></button>
+    </div>
+</div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="view3">
+                    <p class="sb-view-desc"><i class="fa fa-lightbulb-o"></i> Driver-first Kanban board across all corporates: drag driver cards between locations, see 24h coverage gaps at a glance, and undo mistakes.</p>
+                    <!-- =====================================================================
+     VIEW 3 – Driver Board (Kanban-style, driver-centric)
+     Behaviour: assets/js/view3.js
+     ===================================================================== -->
+<div class="v3" id="v3">
+
+    <!-- Left rail: unassigned drivers -->
+    <div class="v3-rail">
+        <div class="sb-card">
+            <div class="sb-card-head"><i class="fa fa-user-plus"></i> Unassigned <span class="badge pull-right" id="v3-un-count">0</span></div>
+            <div class="sb-card-body" id="v3-rail"></div>
+        </div>
+    </div>
+
+    <div class="v3-main">
+        <!-- Filter bar -->
+        <div class="v3-filters">
+            <div class="form-group">
+                <label>Standby Corporate</label>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" id="v3-corp-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>All corporates</span> <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu v3-corp-menu" id="v3-corp-menu" aria-labelledby="v3-corp-btn"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Shift</label>
+                <div class="btn-group btn-group-sm" id="v3-shift" role="group" aria-label="Shift filter">
+                    <button type="button" class="btn btn-default active" data-shift="all">All</button>
+                    <button type="button" class="btn btn-default" data-shift="day" title="Starts 06:00 – 13:59">Day</button>
+                    <button type="button" class="btn btn-default" data-shift="evening" title="Starts 14:00 – 21:59">Evening</button>
+                    <button type="button" class="btn btn-default" data-shift="night" title="Starts 22:00 – 05:59">Night</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="v3-q">Driver</label>
+                <input type="search" id="v3-q" class="form-control input-sm" placeholder="Name or mobile" autocomplete="off">
+            </div>
+            <div class="v3-hint hidden-xs"><i class="fa fa-hand-pointer-o"></i> Drag cards between locations · Ctrl/Shift-click to select several</div>
+        </div>
+
+        <!-- Board -->
+        <div class="v3-board" id="v3-board"></div>
+
+        <!-- Recent changes -->
+        <div class="sb-card v3-log">
+            <div class="sb-card-head"><i class="fa fa-history"></i> Recent changes <small class="sb-muted">(latest 10, from all views)</small></div>
+            <div class="sb-card-body">
+                <table class="table table-striped sb-table" style="border-bottom:0 !important">
+                    <tbody id="v3-log"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <footer class="sb-footer">StandBy Corporate – UI demo · sample data only, nothing is saved to a server</footer>
+</div>
+
+<div id="sb-toasts" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="assets/js/data.js?v=1791981077"></script>
+<script src="assets/js/rules.js?v=1791981077"></script>
+<script src="assets/js/view1.js?v=1791981077"></script>
+<script src="assets/js/view2.js?v=1791981077"></script>
+<script src="assets/js/view3.js?v=1791981077"></script>
+<script>
+/* ---------- Page shell: tabs, sidebar toggle, reset ---------- */
+jQuery(function ($) {
+    'use strict';
+    var TAB_KEY = 'standbyDemo.lastTab';
+    var views = { view1: SBView1, view2: SBView2, view3: SBView3 };
+
+    function store(key, val) {
+        try { if (val === undefined) { return localStorage.getItem(key); } localStorage.setItem(key, val); } catch (e) { return null; }
+        return null;
+    }
+
+    // Build every view once; each re-renders itself on "sb:change".
+    $.each(views, function (k, v) { v.init(); });
+
+    // Re-render the view that becomes visible (layout may depend on size).
+    $('.sb-view-tabs a').on('shown.bs.tab', function () {
+        var key = $(this).data('view');
+        store(TAB_KEY, key);
+        views[key].onShow();
+    });
+
+    var last = store(TAB_KEY);
+    if (!views[last]) { last = 'view1'; }
+    $('.sb-view-tabs a[data-view="' + last + '"]').tab('show');
+
+    // Reset demo data
+    $('#sb-reset').on('click', function (e) {
+        e.preventDefault();
+        SBData.reset();
+        SBToast.show('Original sample data restored.', 'info', 'Demo reset. ');
+    });
+
+    // Sidebar collapse (hamburger)
+    $('#menu_toggle').on('click', function (e) {
+        e.preventDefault();
+        $('body').toggleClass('nav-md nav-sm');
+    });
+
+    // Sidebar sub-menu toggle; other menu items are dead links in this demo
+    $('.side-menu > li > a').on('click', function (e) {
+        e.preventDefault();
+        var $li = $(this).parent();
+        if ($li.children('.child_menu').length) {
+            $li.toggleClass('open');
+        } else {
+            SBToast.show('This menu item is not part of the demo.', 'info');
+        }
+    });
+    $('.child_menu a').on('click', function (e) {
+        e.preventDefault();
+        if (!$(this).parent().hasClass('current-page')) {
+            SBToast.show('This menu item is not part of the demo.', 'info');
+        }
+    });
+});
+</script>
+</body>
+</html>
